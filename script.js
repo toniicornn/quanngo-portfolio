@@ -26,3 +26,20 @@ const obs = new IntersectionObserver(entries => {
   });
 },{threshold:.1});
 revealTargets.forEach(el => obs.observe(el));
+
+// Project 01 — Sealy Showroom
+const firstProject = document.querySelector('.project-card');
+if (firstProject) {
+  firstProject.style.cursor = 'pointer';
+  firstProject.setAttribute('role', 'link');
+  firstProject.setAttribute('tabindex', '0');
+  const title = firstProject.querySelector('h3');
+  const image = firstProject.querySelector('img');
+  if (title) title.textContent = 'SEALY SHOWROOM';
+  if (image) image.alt = 'Sealy Showroom — Shopdrawing Project';
+  const openProject = () => window.location.href = 'sealy.html';
+  firstProject.addEventListener('click', openProject);
+  firstProject.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') openProject();
+  });
+}
